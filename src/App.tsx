@@ -1,9 +1,12 @@
 import React from 'react';
+import CharactersList from './components/CharactersList';
+import Router from './routes';
 
 function App() {
   return (
     <div className="App">
-      casd c/asdm c,.m 
+      <Router />
+      {/* <CharactersList /> */}
     </div>
   );
 }
