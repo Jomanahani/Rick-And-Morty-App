@@ -10,7 +10,8 @@ export const Section = styled.section`
 export const DetailsContainer = styled.div`
   display: flex;
   width: 70%;
-  gap: 2rem;
+  max-height: 80vh;
+  gap: 1.5rem;
   align-items: flex-start;
   justify-content: space-between;
   border: 1px solid #f4d03f;
@@ -27,7 +28,6 @@ export const DetailsContainer = styled.div`
 
 export const ImageCard = styled.div`
   width: 35%;
-  height: 70%;
   background: rgba(255, 255, 255, 0.06);
   padding: 1rem;
   border-radius: 1rem;
@@ -46,9 +46,10 @@ export const ImageCard = styled.div`
 
 export const InfoCard = styled.div`
   width: 55%;
+  height: 73vh;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.6rem;
 
   background: rgba(0, 0, 0, 0.25);
   padding: 1.5rem 2rem;
@@ -74,8 +75,8 @@ export const InfoCard = styled.div`
 
 export const EpisodesCard = styled.div`
   width: 30%;
-  padding: 1rem;
-  max-height: 70vh;
+  height: 73vh;
+  padding: 1.5rem 1rem;
   border-radius: 1rem;
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -84,8 +85,9 @@ export const EpisodesCard = styled.div`
 
   h2 {
     color: #ffffffcc;
-    margin-bottom: 1rem;
     flex-shrink: 0;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
   }
 `;
 
@@ -97,7 +99,7 @@ export const EpisodesList = styled.ul`
   flex-direction: column;
   gap: 1rem;
   list-style: none;
-  padding: 0;
+  padding: 0 0.5rem;
   margin: 0;
 
   &::-webkit-scrollbar {
