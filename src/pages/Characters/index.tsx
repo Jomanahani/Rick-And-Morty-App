@@ -2,7 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { CharactersResponse } from "../../types";
 import { fetchCharacters } from "../../api/rickAndMortyApi";
-import { Link } from "react-router-dom";
+import CharacterCard from "../../components/CharacterCard";
+import NavBar from "../../components/NavBar";
+import { CharContainer } from "./style";
+import Spinner from "../../components/Spinner";
 
 const Characters = () => {
   const { data, isLoading, error } = useQuery<CharactersResponse, Error>({
@@ -10,21 +13,27 @@ const Characters = () => {
     queryFn: () => fetchCharacters(),
   });
 
-  if (isLoading) return <p>جارٍ التحميل...</p>;
+  if (isLoading) return <Spinner />;
   if (error) return <p>حدث خطأ أثناء جلب البيانات</p>;
 
   return (
     <div>
+      <NavBar name="Rick And Morty" />
+      <CharContainer>
       {data && data.results.length ? (
         data.results.map((char) => (
-          <div key={char.id}>
-            <img src={char.image} alt={char.name} />
-            <Link to={`/characters/${char.id}`}>{char.name}</Link>
-          </div>
+          <CharacterCard
+          key={char.id}
+          id={char.id}
+          image={char.image}
+          name={char.name}
+          status={char.status}
+          />
         ))
       ) : (
         <p>لا توجد شخصيات مطابقة</p>
       )}
+      </CharContainer>
     </div>
   );
 };
