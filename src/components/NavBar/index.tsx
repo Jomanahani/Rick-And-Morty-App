@@ -1,21 +1,22 @@
-import React from 'react'
-import { Name, Nav } from './style'
-import SearchBar from '../SearchBar';
-
+import React from "react";
+import { Name, Nav } from "./style";
+import SearchBar from "../SearchBar";
 
 type NavBarProps = {
   name: string;
+  searchTerm: string;
+  setSearchTerm: (value: string) => void;
+  resultsCount?: number;
 };
 
-
-const NavBar = ({name}:NavBarProps) => {
+const NavBar = ({ name, searchTerm, setSearchTerm, resultsCount }: NavBarProps) => {
   return (
     <Nav>
       <Name>{name}</Name>
-      <SearchBar />
-      <p>Found x results</p>
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      {typeof resultsCount === "number" && <p>Found {resultsCount} results</p>}
     </Nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
