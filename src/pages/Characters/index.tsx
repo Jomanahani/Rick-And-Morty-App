@@ -4,7 +4,7 @@ import { CharactersResponse } from "../../types";
 import { fetchCharacters } from "../../api/rickAndMortyApi";
 import CharacterCard from "../../components/CharacterCard";
 import NavBar from "../../components/NavBar";
-import { CharContainer } from "./style";
+import { CharContainer, NoResults } from "./style";
 import Spinner from "../../components/Spinner";
 
 const Characters = () => {
@@ -16,14 +16,14 @@ const Characters = () => {
   });
 
   if (isLoading) return <Spinner />;
-  if (error) return <p>حدث خطأ أثناء جلب البيانات</p>;
+  if (error) return <p>An error occurred while retrieving data.</p>;
 
   const filteredCharacters = data?.results.filter((char) =>
     char.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div>
+    <>
       <NavBar
         name="Rick And Morty"
         searchTerm={searchTerm}
@@ -42,10 +42,10 @@ const Characters = () => {
             />
           ))
         ) : (
-          <p>لا توجد شخصيات مطابقة</p>
+          <NoResults>No matching characters :( </NoResults>
         )}
       </CharContainer>
-    </div>
+    </>
   );
 };
 

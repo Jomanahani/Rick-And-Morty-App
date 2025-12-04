@@ -1,5 +1,5 @@
 import React from "react";
-import { Name, Nav } from "./style";
+import { Name, Nav, Results } from "./style";
 import SearchBar from "../SearchBar";
 
 type NavBarProps = {
@@ -14,7 +14,7 @@ const NavBar = ({ name, searchTerm, setSearchTerm, resultsCount }: NavBarProps) 
     <Nav>
       <Name>{name}</Name>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      {typeof resultsCount === "number" && <p>Found {resultsCount} results</p>}
+      <Results>Found {resultsCount} results</Results>
     </Nav>
   );
 };
