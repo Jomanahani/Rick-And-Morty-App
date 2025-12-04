@@ -5,12 +5,13 @@ export const Section = styled.section`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 0 1rem;
 `;
 
 export const DetailsContainer = styled.div`
   display: flex;
+  flex-direction: row;
   width: 70%;
-  max-height: 80vh;
   gap: 1.5rem;
   align-items: flex-start;
   justify-content: space-between;
@@ -18,11 +19,20 @@ export const DetailsContainer = styled.div`
   border-radius: 1rem;
   padding: 2rem;
   margin: 0 auto;
-  /* margin-top: 3%; */
+  min-height: 80vh;
+  background: rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1024px) {
+    width: 85%;
+  }
+
   @media (max-width: 768px) {
     flex-direction: column;
-    width: 90%;
+    width: 85%;
+    align-items: center;
     text-align: center;
+    min-height: auto;
+    padding: 1rem;
   }
 `;
 
@@ -33,14 +43,20 @@ export const ImageCard = styled.div`
   border-radius: 1rem;
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 70vh;
     border-radius: 1rem;
     object-fit: cover;
-    display: block;
-    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
   }
 `;
 
@@ -50,7 +66,6 @@ export const InfoCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-
   background: rgba(0, 0, 0, 0.25);
   padding: 1.5rem 2rem;
   border-radius: 1rem;
@@ -64,43 +79,43 @@ export const InfoCard = styled.div`
     font-family: "Dancing Script";
   }
 
-  p {
-    color: #ffffffcc;
-    font-size: 1.1rem;
-    font-family: Montserrat;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-    padding-bottom: 0.4rem;
+  @media (max-width: 768px) {
+    width: 90%;
   }
 `;
 
 export const EpisodesCard = styled.div`
   width: 30%;
   height: 73vh;
+  display: flex;
+  flex-direction: column;
   padding: 1.5rem 1rem;
   border-radius: 1rem;
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  display: flex;
-  flex-direction: column;
+  background: rgba(0, 0, 0, 0.15);
 
   h2 {
     color: #ffffffcc;
-    flex-shrink: 0;
     margin-top: 0;
     margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    margin-top: 1rem;
   }
 `;
 
 export const EpisodesList = styled.ul`
-  flex-grow: 1;   
-  overflow-y: auto; 
   display: flex;
-  padding-right: 1rem;
   flex-direction: column;
   gap: 1rem;
   list-style: none;
-  padding: 0 0.5rem;
+  padding: 0;
   margin: 0;
+  max-height: 60vh;
+  overflow-y: auto;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -108,6 +123,10 @@ export const EpisodesList = styled.ul`
   &::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 3px;
+  }
+
+  @media (max-width: 768px) {
+    max-height: 40vh;
   }
 `;
 
@@ -129,5 +148,11 @@ export const BackIcon = styled.button`
     font-size: 4.3rem;
     left: 4.7%;
     top: 2.5%;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    top: 1.5%;
+    left: 3%;
   }
 `;

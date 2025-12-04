@@ -12,6 +12,14 @@ const Input = styled.input`
   &::placeholder {
     color: #181201ca;
   }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    max-width: none;
+    background-color: #f4d03f;
+    border-radius: 2rem;
+    margin: 0 auto;
+  }
 `;
 
 type SearchBarProps = {
